@@ -36,7 +36,7 @@ export function Navigation() {
         {/* Desktop / tablet: full floating pill */}
         <nav className="mt-6 hidden items-center gap-8 rounded-full border border-border bg-bg/50 px-7 py-3 backdrop-blur-md sm:flex">
           <NavLink to="/" className="font-display text-sm italic tracking-wide text-ink/90">
-            Kaia Lindgren
+            RECLIPSE
           </NavLink>
           <span className="h-4 w-px bg-border" />
           {links.map((l) => (
