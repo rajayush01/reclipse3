@@ -1,4 +1,4 @@
-# Kaia Lindgren — Cinematic Photography Portfolio
+# Reclipse — Cinematic Photography Portfolio
 
 A scene-based, film-paced photography & film portfolio built with React 19, TypeScript, Vite, Tailwind CSS v4, Framer Motion, Lenis, GSAP, React Router, and React Player.
 

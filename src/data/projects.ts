@@ -43,7 +43,7 @@ export const projects: Project[] = [
     location: 'Kyoto, Japan',
     year: '2023',
     cover:
-      img5,
+      img9,
     synopsis:
       'Before the shops open and the streets fill, Kyoto belongs to its temples and its fog. A study of stillness before the city wakes.',
     gallery: [
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     location: 'Turin, Italy',
     year: '2022',
     cover:
-      img9,
+      img10,
     synopsis:
       'An abandoned palazzo, nine rooms, nine kinds of light. A portrait of a building remembering what it used to hold.',
     gallery: [

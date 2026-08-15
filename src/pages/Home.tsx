@@ -26,6 +26,22 @@ const testimonials = [
   },
 ]
 
+const stats = [
+  { value: '11', label: 'Years behind the lens' },
+  { value: '140+', label: 'Stories told' },
+  { value: '23', label: 'Countries' },
+  { value: '6', label: 'Awards, unframed' },
+]
+
+const press = [
+  'It\u2019s Nice That',
+  'AnOther Magazine',
+  'Condé Nast Traveler',
+  'Feature Shoot',
+  'The Fader',
+  'Kinfolk',
+]
+
 export function Home() {
   return (
     <>
@@ -72,7 +88,7 @@ export function Home() {
       {/* Scene 02 — a single sentence of intent */}
       <Scene className="flex items-center justify-center bg-bg px-6">
         <p className="max-w-2xl text-center font-display text-xl italic leading-relaxed text-ink/90 md:text-3xl">
-          Kaia Lindgren is a photographer and director working in the space
+          Reclipse is a photographer and director working in the space
           between documentary and daydream — where a place stops being a
           location and becomes a mood.
         </p>
@@ -105,11 +121,111 @@ export function Home() {
         </Link>
       </Scene>
 
+      {/* Scene 03.5 — two more stories, side by side */}
+      <Scene className="bg-bg">
+        <div className="flex flex-col md:flex-row">
+          {[projects[1], projects[2]].filter(Boolean).map((p) => (
+            <Link
+              key={p.slug}
+              to={`/photography/${p.slug}`}
+              data-cursor="view"
+              data-cursor-label="Enter"
+              className="group relative flex aspect-[4/5] w-full items-end overflow-hidden md:aspect-auto md:h-screen md:w-1/2"
+            >
+              <img
+                src={p.cover}
+                alt={p.title}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-transparent to-transparent" />
+              <div className="relative z-10 px-8 pb-12 md:px-12 md:pb-16">
+                <p className="font-mono-cap text-[11px] uppercase text-accent">
+                  {p.location} — {p.year}
+                </p>
+                <h3 className="mt-2 font-display text-3xl italic text-ink md:text-5xl">
+                  {p.title}
+                </h3>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </Scene>
+
       {/* Scene 04 — a quote, alone in the dark */}
       <Scene className="flex items-center justify-center bg-bg px-6">
         <p className="max-w-xl text-center font-display text-2xl italic text-ink/80 md:text-4xl">
           {projects[0].quote}
         </p>
+      </Scene>
+
+      {/* Scene 04.2 — the practice, a short about */}
+      <Scene className="flex items-center bg-surface px-6 py-24 md:px-16">
+        <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-12 md:grid-cols-[0.8fr_1fr] md:items-center">
+          <motion.div
+            className="relative aspect-[3/4] w-full overflow-hidden"
+            initial={{ opacity: 0, scale: 1.04 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <img
+              src={projects[1]?.cover ?? projects[0].cover}
+              alt=""
+              className="h-full w-full object-cover"
+            />
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col gap-6"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+          >
+            <span className="font-mono-cap text-[10px] uppercase text-accent">
+              The Practice
+            </span>
+            <p className="font-display text-2xl italic leading-relaxed text-ink md:text-3xl">
+              I don't shoot moments. I wait for the ones that were already
+              going to happen — and try not to be in the way.
+            </p>
+            <p className="max-w-md text-sm leading-relaxed text-muted">
+              Trained in documentary film before turning to stills, Kaia
+              works slowly, on location, without a shot list. Every project
+              begins with a week of just watching — the light, the room, the
+              way people move when no one's asking them to.
+            </p>
+            <Link
+              to="/about"
+              className="font-mono-cap w-fit border-b border-accent/60 pb-1 text-xs uppercase text-accent transition-colors duration-300 hover:border-accent hover:text-ink"
+            >
+              More on the practice →
+            </Link>
+          </motion.div>
+        </div>
+      </Scene>
+
+      {/* Scene 04.4 — numbers, quietly */}
+      <Scene className="flex items-center justify-center bg-bg px-6 py-24">
+        <div className="grid w-full max-w-4xl grid-cols-2 gap-y-14 md:grid-cols-4">
+          {stats.map((s, i) => (
+            <motion.div
+              key={s.label}
+              className="flex flex-col items-center gap-2 text-center"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.9, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span className="font-display text-4xl italic text-ink md:text-5xl">
+                {s.value}
+              </span>
+              <span className="font-mono-cap text-[10px] uppercase text-muted">
+                {s.label}
+              </span>
+            </motion.div>
+          ))}
+        </div>
       </Scene>
 
       {/* Scene 04.5 — testimonials, stacked and unhurried */}
@@ -184,13 +300,36 @@ export function Home() {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
               <p className="max-w-2xl font-display text-xl italic leading-relaxed text-ink/90 md:text-2xl">
-                “{t.quote}”
+                "{t.quote}"
               </p>
               <p className="font-mono-cap text-[10px] uppercase text-muted">
                 {t.name} <span className="text-accent">—</span> {t.context}
               </p>
             </motion.div>
           ))}
+        </div>
+      </Scene>
+
+      {/* Scene 05.5 — press, drifting sideways */}
+      <Scene className="flex flex-col items-center justify-center gap-10 overflow-hidden bg-bg py-20">
+        <span className="font-mono-cap text-[10px] uppercase text-muted">
+          As Featured In
+        </span>
+        <div className="relative w-full overflow-hidden">
+          <motion.div
+            className="flex w-max gap-16 whitespace-nowrap"
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
+          >
+            {[...press, ...press].map((name, i) => (
+              <span
+                key={`${name}-${i}`}
+                className="font-display text-2xl italic text-ink/50 md:text-3xl"
+              >
+                {name}
+              </span>
+            ))}
+          </motion.div>
         </div>
       </Scene>
 
@@ -206,7 +345,32 @@ export function Home() {
           View the Photography Archive
         </Link>
       </Scene>
-      
+
+      {/* Scene 07 — final CTA, an invitation to reach out */}
+      <Scene className="flex items-center justify-center bg-surface px-6 py-32">
+        <motion.div
+          className="flex max-w-2xl flex-col items-center gap-8 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <span className="font-mono-cap text-[10px] uppercase text-accent">
+            Currently booking 2027
+          </span>
+          <h2 className="font-display text-3xl italic text-ink md:text-5xl">
+            Have a story worth keeping?
+          </h2>
+          <Link
+            to="/contact"
+            data-cursor="view"
+            data-cursor-label="Write"
+            className="font-mono-cap mt-2 border-b border-accent/60 pb-1 text-xs uppercase text-accent transition-colors duration-300 hover:border-accent hover:text-ink"
+          >
+            Start the Conversation →
+          </Link>
+        </motion.div>
+      </Scene>
     </>
   )
 }

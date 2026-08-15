@@ -57,7 +57,7 @@ export function Navigation() {
         {/* Mobile: wordmark + menu toggle only */}
         <nav className="mt-6 flex w-[calc(100%-2rem)] items-center justify-between rounded-full border border-border bg-bg/50 px-5 py-3 backdrop-blur-md sm:hidden">
           <NavLink to="/" className="font-display text-sm italic tracking-wide text-ink/90">
-            Kaia Lindgren
+            Reclipse
           </NavLink>
           <button
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
