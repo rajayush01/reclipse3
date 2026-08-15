@@ -61,7 +61,7 @@ export const projects: Project[] = [
     synopsis:
       'An abandoned palazzo, nine rooms, nine kinds of light. A portrait of a building remembering what it used to hold.',
     gallery: [
-      img10,img1,img2
+      img5,img1,img2
     ],
     quote: '“Every empty room is a held breath.”',
   },
