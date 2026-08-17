@@ -18,7 +18,7 @@ export function Scene({
   return (
     <motion.section
       id={id}
-      className={`relative min-h-screen w-full ${className}`}
+      className={`relative w-full ${className}`}
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.35 }}

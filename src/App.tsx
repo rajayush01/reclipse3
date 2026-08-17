@@ -11,6 +11,30 @@ import { ProjectDetail } from './pages/ProjectDetail'
 import { Films } from './pages/Films'
 import { FAQs } from './pages/FAQs'
 import { Enquire } from './pages/Enquire'
+import { Footer } from './components/Footer'
+
+/**
+ * Forces every route change to start at the top of the page.
+ * Plain window.scrollTo isn't enough once Lenis is driving scroll —
+ * it keeps its own internal position, so we reset both: Lenis first
+ * (if present on window), then the native scroll as a fallback for
+ * anything Lenis doesn't intercept (e.g. before it's mounted).
+ */
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    const lenis = (window as any).lenis
+
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true })
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
+    }
+  }, [pathname])
+
+  return null
+}
 
 function PageFade() {
   const location = useLocation()
@@ -60,7 +84,9 @@ export default function App() {
       >
         <CinematicCursor />
         <Navigation />
+        <ScrollToTop />
         <PageFade />
+        <Footer />
       </div>
       {loading && <Loader onDone={() => setLoading(false)} />}
     </>

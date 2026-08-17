@@ -86,7 +86,7 @@ export function Home() {
       </section>
 
       {/* Scene 02 — a single sentence of intent */}
-      <Scene className="flex items-center justify-center bg-bg px-6">
+      <Scene className="flex items-center justify-center bg-bg px-6 py-20 md:py-28">
         <p className="max-w-2xl text-center font-display text-xl italic leading-relaxed text-ink/90 md:text-3xl">
           Reclipse is a photographer and director working in the space
           between documentary and daydream — where a place stops being a
@@ -152,14 +152,14 @@ export function Home() {
       </Scene>
 
       {/* Scene 04 — a quote, alone in the dark */}
-      <Scene className="flex items-center justify-center bg-bg px-6">
+      <Scene className="flex items-center justify-center bg-bg px-6 py-20 md:py-28">
         <p className="max-w-xl text-center font-display text-2xl italic text-ink/80 md:text-4xl">
           {projects[0].quote}
         </p>
       </Scene>
 
       {/* Scene 04.2 — the practice, a short about */}
-      <Scene className="flex items-center bg-surface px-6 py-24 md:px-16">
+      <Scene className="flex items-center bg-surface px-6 py-20 md:px-16 md:py-28">
         <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-12 md:grid-cols-[0.8fr_1fr] md:items-center">
           <motion.div
             className="relative aspect-[3/4] w-full overflow-hidden"
@@ -206,7 +206,7 @@ export function Home() {
       </Scene>
 
       {/* Scene 04.4 — numbers, quietly */}
-      <Scene className="flex items-center justify-center bg-bg px-6 py-24">
+      <Scene className="flex items-center justify-center bg-bg px-6 py-20 md:py-24">
         <div className="grid w-full max-w-4xl grid-cols-2 gap-y-14 md:grid-cols-4">
           {stats.map((s, i) => (
             <motion.div
@@ -276,7 +276,7 @@ export function Home() {
       </Scene>
 
       {/* Scene 05 — invitation into the full archive */}
-      <Scene className="flex flex-col items-center justify-center gap-16 bg-surface px-6 py-24 md:gap-24">
+      <Scene className="flex flex-col items-center justify-center gap-12 bg-surface px-6 py-20 md:gap-16 md:py-28">
         <motion.p
           className="font-mono-cap text-[11px] uppercase text-accent"
           initial={{ opacity: 0 }}
@@ -311,7 +311,7 @@ export function Home() {
       </Scene>
 
       {/* Scene 05.5 — press, drifting sideways */}
-      <Scene className="flex flex-col items-center justify-center gap-10 overflow-hidden bg-bg py-20">
+      <Scene className="flex flex-col items-center justify-center gap-8 overflow-hidden bg-bg py-16">
         <span className="font-mono-cap text-[10px] uppercase text-muted">
           As Featured In
         </span>
@@ -334,7 +334,7 @@ export function Home() {
       </Scene>
 
       {/* Scene 06 — dual gateway: stills or motion, choose your world */}
-      <Scene className="flex flex-col items-center justify-center gap-10 bg-bg px-6 text-center">
+      <Scene className="flex flex-col items-center justify-center gap-8 bg-bg px-6 py-20 text-center">
         <p className="font-display text-xl italic text-ink/90 md:text-2xl">
           Every story lives in the archive.
         </p>
@@ -347,7 +347,7 @@ export function Home() {
       </Scene>
 
       {/* Scene 07 — final CTA, an invitation to reach out */}
-      <Scene className="flex items-center justify-center bg-surface px-6 py-32">
+      <Scene className="flex items-center justify-center bg-surface px-6 py-24">
         <motion.div
           className="flex max-w-2xl flex-col items-center gap-8 text-center"
           initial={{ opacity: 0, y: 20 }}
